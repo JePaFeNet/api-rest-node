@@ -1,38 +1,9 @@
-const products = [
-  {
-    id: 1,
-    name: "Camiseta Deportiva",
-    price: 150,
-    categories: ["ropa", "deportes"],
-  },
-  {
-    id: 2,
-    name: "Zapatos Running",
-    price: 1200,
-    categories: ["calzado", "deportes"],
-  },
-  {
-    id: 3,
-    name: "Mochila Escolar",
-    price: 350,
-    categories: ["mochilas", "escolar"],
-  },
-  {
-    id: 4,
-    name: "Auriculares Bluetooth",
-    price: 800,
-    categories: ["tecnología", "audio"],
-  },
-  {
-    id: 5,
-    name: "Botella Térmica",
-    price: 220,
-    categories: ["hogar", "accesorios"],
-  },
-];
+import * as Model from "../models/Product.js";
 
 export const getAllProducts = (req, res) => {
   const { category } = req.query;
+
+  const products = Model.getAllProducts();
 
   if (category) {
     const productsFiltered = products.filter((item) =>
@@ -53,6 +24,8 @@ export const searchProducts = (req, res) => {
     return res.status(400).json({ error: "El nombre es requerido" });
   }
 
+  const products = Model.getAllProducts();
+
   const productsFiltered = products.filter((item) =>
     item.name.toLowerCase().includes(name.toLowerCase())
   );
@@ -67,7 +40,7 @@ export const searchProducts = (req, res) => {
 export const getProductById = (req, res) => {
   const id = parseInt(req.params.id);
 
-  const product = products.find((item) => item.id == id);
+  const product = Model.getProductById(id);
 
   if (!product) {
     res.status(404).json({ error: "No existe el producto" });
