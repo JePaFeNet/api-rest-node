@@ -38,9 +38,15 @@ npm run dev
 
 ```json
 [
-  { "id": 1, "name": "Camiseta Deportiva", "price": 150 },
-  { "id": 2, "name": "Zapatos Running", "price": 1200 },
-  { "id": 3, "name": "Mochila Escolar", "price": 350 }
+    {
+        "id": "24lXaLRx3IDONIezA1u3",
+        "categories": [
+            "Categoria 1",
+            "Categoria 2"
+        ],
+        "price": 100,
+        "name": "Producto 1"
+    },
 ]
 ```
 
@@ -63,9 +69,48 @@ npm run dev
 - **Descripción:** Devuelve un producto específico por su ID.
 - **Parámetros:**
   - `id` (path, requerido): ID del producto.
-- **Ejemplo de uso:** `/products/1`
+- **Ejemplo de uso:** `/products/24lXaLRx3IDONIezA1u3`
 - **Respuesta ejemplo:**
 
 ```json
-{ "id": 1, "name": "Camiseta Deportiva", "price": 150 }
+{
+    "id": "24lXaLRx3IDONIezA1u3",
+    "categories": [
+        "Categoria 1",
+        "Categoria 2"
+    ],
+    "price": 100,
+    "name": "Producto 1"
+}
+```
+
+### Crear un producto
+
+- **POST** `/products`
+- **Descripción:** Crea un nuevo producto.
+- **Body (JSON):**
+
+```json
+{
+    "categories": [
+        "Categoria 1",
+        "Categoria 2"
+    ],
+    "price": 100,
+    "name": "Producto 1"
+}
+```
+
+- **Respuesta ejemplo:**
+
+```json
+{
+    "id": "24lXaLRx3IDONIezA1u3",
+    "name": "Producto 1",
+    "price": 100,
+    "categories": [
+        "Categoria 1",
+        "Categoria 2"
+    ]
+}
 ```
