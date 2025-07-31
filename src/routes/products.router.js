@@ -7,7 +7,9 @@ import {
   searchProducts,
   getProductById,
   createProduct,
-  deleteProduct
+  updateProduct,
+  updatePatchProduct,
+  deleteProduct,
 } from "../controllers/products.controller.js";
 
 router.get("/products", getAllProducts);
@@ -16,6 +18,9 @@ router.get("/products/:id", getProductById);
 
 router.post("/products", createProduct);
 
-router.delete('/products/:id', deleteProduct)
+router.put("/products/:id", updateProduct);
+router.patch("/products/:id", updatePatchProduct);
+
+router.delete("/products/:id", deleteProduct);
 
 export default router;
