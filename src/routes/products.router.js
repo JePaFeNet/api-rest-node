@@ -12,6 +12,7 @@ import {
   deleteProduct,
 } from "../controllers/products.controller.js";
 
+
 router.get("/products", getAllProducts);
 router.get("/products/search", searchProducts);
 router.get("/products/:id", getProductById);
